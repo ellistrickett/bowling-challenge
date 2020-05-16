@@ -18,6 +18,14 @@ describe('Bowling', function(){
     expect(bowling.score).toEqual(20)
   });
 
+  it ('can roll a spare', function(){
+    bowling.roll(7);
+    bowling.roll(3);
+    bowling.roll(4);
+    manyRolls(0, 17)
+    expect(bowling.score).toEqual(18);
+  });
+
   function manyRolls(pins, rolls) {
     for (let i = 0; i < rolls; i++) {
       bowling.roll(pins);
