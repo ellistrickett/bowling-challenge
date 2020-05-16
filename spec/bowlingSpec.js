@@ -9,17 +9,19 @@ describe('Bowling', function(){
   });
 
   it ('can roll a game of 0s', function(){
-    for (let i = 0; i < 20; i++) {
-      bowling.roll(0);
-    }
+    manyRolls(0, 20)
     expect(bowling.score).toEqual(0);
   });
 
   it ('can roll a game of 1s and score will be 20', function(){
-    for (let i = 0; i < 20; i++) {
-      bowling.roll(1);
-    }
+    manyRolls(1, 20)
     expect(bowling.score).toEqual(20)
   });
+
+  function manyRolls(pins, rolls) {
+    for (let i = 0; i < rolls; i++) {
+      bowling.roll(pins);
+    }
+  }
 
 });
