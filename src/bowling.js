@@ -2,12 +2,16 @@
 
 class Bowling {
 
-  roll(){
+  constructor() {
+    this.totalScore = 0
+  }
 
+  roll(pins){
+    this.totalScore += pins;
   }
 
   get score(){
-    return 0;
+    return this.totalScore;
   }
 
 }
