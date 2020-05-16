@@ -5,7 +5,7 @@ describe('Bowling', function(){
   let bowling;
 
   beforeEach(function(){
-    bowling = new bowling();
+    bowling = new Bowling();
   });
 
   it ('can roll a game of zeros', function(){
