@@ -4,10 +4,12 @@ class Bowling {
 
   constructor() {
     this.rolls = [];
+    this.lastRoll = 0
   }
 
   roll(pins){
     this.rolls.push(pins);
+    this.lastRoll = pins
   }
 
   get score() {
