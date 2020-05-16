@@ -31,7 +31,6 @@ describe('Bowling', function(){
     bowling.roll(2)
     bowling.roll(3)
     manyRolls(0, 17)
-
     expect(bowling.score).toEqual(20)
   });
 

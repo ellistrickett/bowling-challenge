@@ -10,21 +10,21 @@ class Bowling {
     this.rolls.push(pins);
   }
 
-  get score(){
+  get score() {
     let score = 0;
     let rollNumber = 0;
 
     for (let frameNumber = 0; frameNumber < 10; frameNumber++) {
-      if (this.rolls[rollNumber] === 10) {
-        score += 10 + this.rolls[rollNumber + 1] + this.rolls[rollNumber + 2];
+      if (this.isStrike(rollNumber)) {
+        score += this.strikeBonus(rollNumber);
         rollNumber ++;
         continue;
       }
 
       const frameScore = this.rolls[rollNumber] + this.rolls[rollNumber + 1];
   
-      if (frameScore === 10) {
-        score += 10 + this.rolls[rollNumber + 2];
+      if (this.isSpare(frameScore)) {
+        score += this.spareBonus(rollNumber);
       }
       else {
         score += frameScore;
@@ -34,4 +34,20 @@ class Bowling {
     return score;
   }
 
+  isSpare(frameScore) { 
+    return frameScore === 10;
+  }
+
+  spareBonus(rollNumber) {
+    return 10 + this.rolls[rollNumber + 2];
+  }
+
+  isStrike(rollNumber) {
+    return this.rolls[rollNumber] === 10;
+  }
+
+  strikeBonus(rollNumber) {
+    return 10 + this.rolls[rollNumber + 1] + this.rolls[rollNumber + 2];
+  }
+  
 }
