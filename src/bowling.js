@@ -3,15 +3,29 @@
 class Bowling {
 
   constructor() {
-    this.totalScore = 0
+    this.rolls = [];
   }
 
   roll(pins){
-    this.totalScore += pins;
+    this.rolls.push(pins);
   }
 
   get score(){
-    return this.totalScore;
+    let score = 0;
+    let rollNumber = 0;
+
+    for (let frameNumber = 0; frameNumber < 10; frameNumber++) {
+      const frameScore = this.rolls[rollNumber] + this.rolls[rollNumber + 1];
+  
+      if (frameScore === 10) {
+        score += 10 + this.rolls[rollNumber + 2];
+      }
+      else {
+        score += frameScore;
+      }
+      rollNumber += 2;
+    }
+    return score;
   }
 
 }
