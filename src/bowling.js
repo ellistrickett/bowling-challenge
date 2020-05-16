@@ -1,18 +1,13 @@
 'use strict';
 
-describe('Bowling', function(){
+class Bowling {
 
-  let bowling;
+  roll(){
 
-  beforeEach(function(){
-    bowling = new Bowling();
-  });
+  }
 
-  it ('can roll a game of zeros', function(){
-    for (let i = 0; i < 20; i++) {
-      bowling.roll(0);
-    }
-  expect(bowling.score).toEqual(0);
-  });
+  get score(){
+    return 0;
+  }
 
-});
+}
